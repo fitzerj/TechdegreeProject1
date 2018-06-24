@@ -5,6 +5,13 @@
 //initialize quote array
 var quotes = [];
 
+//function which selects a random quote from array quotes and returns quote
+function getRandomQuote() {
+  var index = Math.floor(Math.random() * quotes.length);
+  var selection = quotes[index];
+return selection;
+}
+
 //add quote 1 to quote array
 quotes.push({
   quote: "The four most beautiful words in our common language: 'I told you so.'",
@@ -45,5 +52,3 @@ quotes.push({
   citation: "Reader's Digest",
   categery: "humor"
 });
-
-console.log(quotes);
