@@ -5,7 +5,7 @@
 
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
-//document.getElementById('loadQuote').addEventListener("click", printQuote, false);
+document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
 //initialize quote array
 var quotes = [];
@@ -34,7 +34,7 @@ function printQuote() {
     quoteString +=   '<span class="year">' + selection.year + '</span>'
   }
   quoteString += "</p>";
-  document.getElementById('quote-box').innerHTML
+  document.getElementById('quote-box').innerHTML= quoteString;
 }
 
 //add quote 1 to quote array
@@ -47,8 +47,8 @@ quotes.push({
 
 //add quote 2 to quote array
 quotes.push({
-  quote: "To commit to creating a prophetic congregation today is to grapple with what it means to take responsibility for cocreating the holy right here on earth.",
-  source: "Meg Riley",
+  quote: "Every crime destroys more Edens than our own.",
+  source: "Nathaniel Hawthorne",
   citation: "uuquotes.tumblr.com",
   category: "religion"
 });
@@ -77,3 +77,6 @@ quotes.push({
   citation: "Reader's Digest",
   category: "humor"
 });
+
+//display a random quote
+printQuote();
