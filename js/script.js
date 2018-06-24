@@ -10,6 +10,9 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 //initialize quote array
 var quotes = [];
 
+//array of 3 backgrounnd color possibilities
+var colors = ["#36b55c","#306cdb","#db30c4"];
+
 //function which selects a random quote from array quotes and returns quote
 function getRandomQuote() {
   var index = Math.floor(Math.random() * quotes.length);
@@ -20,6 +23,7 @@ return selection;
 //function which prints to webpage a random quote and source
 //prints citation and year only if present in quote object
 //shows category of quote
+//sets background color randomly to one of three colors
 function printQuote() {
   var selection = getRandomQuote();
   var listOfKeys = [];
@@ -37,6 +41,14 @@ function printQuote() {
   quoteString += '<p class="category">' + 'category: ' + selection.category + '</p>'
   quoteString += "</p>";
   document.getElementById('quote-box').innerHTML= quoteString;
+  document.body.style.backgroundColor = getRandomColor();
+}
+
+//return random background color
+function getRandomColor(){
+  var i = Math.floor(Math.random() * colors.length);
+  var color = colors[i];
+  return color;
 }
 
 //add quote 1 to quote array
