@@ -82,3 +82,6 @@ quotes.push({
 
 //display a random quote
 printQuote();
+
+//displays another quote after 20 seconds
+setInterval(function(){printQuote()}, 20*1000);
