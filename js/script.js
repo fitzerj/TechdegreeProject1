@@ -1,3 +1,8 @@
+//Tech Degree Project 1
+//Author: Julie Fitzer
+//Display of random quotes on a Website.
+
+
 // event listener to respond to "Show another quote" button clicks
 // when user clicks anywhere on the button, the "printQuote" function is called
 //document.getElementById('loadQuote').addEventListener("click", printQuote, false);
@@ -10,6 +15,26 @@ function getRandomQuote() {
   var index = Math.floor(Math.random() * quotes.length);
   var selection = quotes[index];
 return selection;
+}
+
+//function which prints to webpage a random quote and source
+//prints citation and year only if present in quote object
+function printQuote() {
+  var selection = getRandomQuote();
+  var listOfKeys = [];
+  for (var key in selection){   //make list of keys in selected quote object
+    listOfKeys.push(key);
+  }
+  var quoteString = '<p class="quote">' + selection.quote + '</p>' +
+    '<p class="source">'+ selection.source;
+  if (listOfKeys.indexOf("citation") !== -1){
+    quoteString +=   '<span class="citation">' + selection.citation + '</span>'
+  }
+  if (listOfKeys.indexOf("year") !== -1){
+    quoteString +=   '<span class="year">' + selection.year + '</span>'
+  }
+  quoteString += "</p>";
+  document.getElementById('quote-box').innerHTML
 }
 
 //add quote 1 to quote array
@@ -50,5 +75,5 @@ quotes.push({
   quote: "Red sky at night, shepherd's delight. Blue sky at night, day.",
   source: "Tom Parry",
   citation: "Reader's Digest",
-  categery: "humor"
+  category: "humor"
 });
