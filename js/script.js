@@ -19,6 +19,7 @@ return selection;
 
 //function which prints to webpage a random quote and source
 //prints citation and year only if present in quote object
+//shows category of quote
 function printQuote() {
   var selection = getRandomQuote();
   var listOfKeys = [];
@@ -27,12 +28,13 @@ function printQuote() {
   }
   var quoteString = '<p class="quote">' + selection.quote + '</p>' +
     '<p class="source">'+ selection.source;
-  if (listOfKeys.indexOf("citation") !== -1){
+  if (listOfKeys.indexOf("citation") !== -1){  //print citation if it's present
     quoteString +=   '<span class="citation">' + selection.citation + '</span>'
   }
-  if (listOfKeys.indexOf("year") !== -1){
+  if (listOfKeys.indexOf("year") !== -1){  //print year if it's present
     quoteString +=   '<span class="year">' + selection.year + '</span>'
   }
+  quoteString += '<p class="category">' + 'category: ' + selection.category + '</p>'
   quoteString += "</p>";
   document.getElementById('quote-box').innerHTML= quoteString;
 }
